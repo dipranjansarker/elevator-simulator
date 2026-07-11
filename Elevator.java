@@ -2,11 +2,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Elevator{
+    private int id;
     private int currentFloor;
     private ElevatorState state;
     private List<Integer> stops;
 
-    public Elevator(int startFloor){
+    public Elevator(int id, int startFloor){
+        this.id= id;
         this.currentFloor= startFloor;
         this.state= ElevatorState.IDLE;
         this.stops= new ArrayList<>();
@@ -14,6 +16,10 @@ public class Elevator{
 
     public int getCurrentFloor(){
         return currentFloor;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public ElevatorState getState(){
@@ -66,6 +72,6 @@ public class Elevator{
 
     @Override
     public String toString(){
-        return "Floor" + currentFloor + "[" + state + "]";
+        return "Elevator " + id + " @ floor " + currentFloor + " [" + state + "]";
     }
 }
